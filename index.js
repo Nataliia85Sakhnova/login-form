@@ -1,14 +1,21 @@
-function CheckInput () {
-    let x = document.getElementsByID("username").value
-    let y = document.getElementsByID("mail").value
-    let z = document.getElementsByID("city").value
-    let a = document.getElementsByID("password1").value
-    let b = document.getElementsByID("password2").value
+const HandleSubmit = (event) => {
+    event.preventDefault()
+    const x = document.getElementById("username").value
+    const y = document.getElementById("mail").value
+    const z = document.getElementById("city").value
+    const a = document.getElementById("password1").value
+    const b = document.getElementById("password2").value
 
-    if (x == "" || y == "" || z == "" || a == "" || b == ""){
-        alert("Нужно заполнить все поля")
+    if (!x || !y || !z || !a || !b){
+        CheckInput1()
     }
     else {
-        alert("Добро пожаловать в клуб!")
+        CheckInput2()
     }
 }
+
+const CheckInput1 = () => alert("Нужно заполнить все поля")
+
+const CheckInput2 = () => alert("Добро пожаловать в клуб!")
+
+document.getElementById("form").addEventListener("submit", HandleSubmit)
